@@ -1,0 +1,30 @@
+<!-- 利用HTML展示结果 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户信息表</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>用户ID</th>
+        <th>uid</th>
+        <th>姓名</th>
+        <th>邮箱</th>
+        <th>角色</th>
+    </tr>
+    <?php foreach($user_list as $user) :?>
+    <tr>
+        <td><?php echo $user['id']; ?></td>
+        <td><?php echo $user['uid']; ?></td>
+        <td><?php echo $user['username']; ?></td>
+        <td><?php echo $user['realname']; ?></td>
+        <td><?php echo (($user['role'] == 0)?"普通用户":"管理员"); ?></td>
+        <td><a href="index.php?p=Test&c=User&a=remove&id=<?php echo $User['id'];?>">删除</a></td>
+    </tr>
+    <?php endForeach; ?>
+</table>
+<p><a href="index.php?p=Test&c=Tea&a=list">查看教师列表</a></p>
+</body>
+</html>
